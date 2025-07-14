@@ -17,6 +17,11 @@
 --leser-2:#efdbdb;
 --leser-3:#cdaaab;
 --leser-4:#8f6b6d;
+/*透明*/
+--alpha-w-20:rgba(255, 255, 255, 0.2);
+/*尺寸*/
+--ex:99999;
+
 }
 
 /* CSS Reset */
@@ -151,9 +156,14 @@ a {
 /* 頁首區 */
 #topbar {
     /* #對應id */
+    position: fixed; /*position權重較重*/
+    top: 0;
+    left: 0;
+    width: 100%; /*position預設寬高為hug，所以要手動寫w100%*/
+
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    padding: 10px 30px;
 }
 
 div.logo {
@@ -183,7 +193,12 @@ div.logo {
 #topbar .icon-line:hover {background-image: url(../images/icon-line-hover.svg);}
 /* 主選單 */
 #topbar .menu {
-    border: 2px solid;
+    padding: 0 10px;
+    border-radius: 999px;
+    /* 玻璃擬態*/
+    background-color: var(--alpha-w-20);
+    border: 2px solid var(--alpha-w-20);
+
 }
 
 #topbar .menu a {
