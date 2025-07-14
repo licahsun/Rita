@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/* UTF-8(編碼)一定要在第一行!! */
+
+/* CSS變數 */
+:root{
+/* 灰階 */
+--deep:#444;
+--dark:#666;
+--grey:#999;
+--light:#f1f1f1;
+/* 背景 */
+--bg-1:#f2edf0;
+--bg-2:#e6ece5;
+--bg-3:#ecf0f4;
+/* 輔助 */
+--leser-1:#f3e4e4;
+--leser-2:#efdbdb;
+--leser-3:#cdaaab;
+--leser-4:#8f6b6d;
+}
+
+/* CSS Reset */
+* {
+    box-sizing: border-box;
+    /* 不累加內距和邊框 */
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+}
+
+/* 重置字體 */
+body {
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+    list-style: none;
+}
+
+/*重置圖片 */
+img {
+    display: block;
+    width: 100%;
+}
+
+/* 重置連接 */
+a {
+    /* 對應標籤 */
+    display: block;
+    /*inline不支援尺寸設定，但a常用來設定尺寸，所以直接把inline修改為block*/
+    color: #666;
+    text-decoration: none;
+}
+
+/* 頁首區 */
+#topbar {
+    /* #對應id */
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+div.logo {
+    /* .對應class */
+    width: 55px;
+}
+
+#topbar ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* icon選單 */
+#topbar .icon a {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+
+/* svg自動 W:100%/H:auto / 其他點陣圖檔，不會自動100%，要寫background-size */
+#topbar .icon-fb {background-image: url(../images/icon-fb.svg);}
+#topbar .icon-ig {background-image: url(../images/icon-ig.svg);}
+#topbar .icon-line {background-image: url(../images/icon-line.svg);}
+
+#topbar .icon-fb:hover {background-image: url(../images/icon-fb-hover.svg);}
+#topbar .icon-ig:hover {background-image: url(../images/icon-ig-hover.svg);}
+#topbar .icon-line:hover {background-image: url(../images/icon-line-hover.svg);}
+/* 主選單 */
+#topbar .menu {
+    border: 2px solid;
+}
+
+#topbar .menu a {
+    margin: 10px;
+    border-bottom: transparent 2px solid;
+    /* 保留hover的空間，以防尺寸變動 */
+}
+
+#topbar .menu a:hover {
+    color: #111;
+    border-bottom: #111 2px solid;
+}
+
+/* 聯絡我們 */
+#contact{
+    height: 100vh;
+background-color: var(--bg-1);
+}
