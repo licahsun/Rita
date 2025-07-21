@@ -2,25 +2,25 @@
 /* UTF-8(編碼)一定要在第一行!! */
 
 /* CSS變數 */
-:root{
-/* 灰階 */
---deep:#444;
---dark:#666;
---grey:#999;
---light:#f1f1f1;
-/* 背景 */
---bg-1:#f2edf0;
---bg-2:#e6ece5;
---bg-3:#ecf0f4;
-/* 輔助 */
---leser-1:#f3e4e4;
---leser-2:#efdbdb;
---leser-3:#cdaaab;
---leser-4:#8f6b6d;
-/*透明*/
---alpha-w-20:rgba(255, 255, 255, 0.2);
-/*尺寸*/
---ex:99999;
+:root {
+    /* 灰階 */
+    --deep: #444;
+    --dark: #666;
+    --grey: #999;
+    --light: #f1f1f1;
+    /* 背景 */
+    --bg-1: #f2edf0;
+    --bg-2: #e6ece5;
+    --bg-3: #ecf0f4;
+    /* 輔助 */
+    --leser-1: #f3e4e4;
+    --leser-2: #efdbdb;
+    --leser-3: #cdaaab;
+    --leser-4: #8f6b6d;
+    /*透明*/
+    --alpha-w-20: rgba(255, 255, 255, 0.2);
+    /*尺寸*/
+    --ex: 99999;
 
 }
 
@@ -150,16 +150,20 @@ a {
     display: block;
     /*inline不支援尺寸設定，但a常用來設定尺寸，所以直接把inline修改為block*/
     color: #666;
-    text-decoration: none;
+    text-decoration: none; /*取消預設底線*/
+/* 設定在元素本身，不要設定在hover上;未滿動畫時間時，沒有離場動畫，會直接跳掉 */
+    transition: 0.4s;
 }
 
 /* 頁首區 */
 #topbar {
     /* #對應id */
-    position: fixed; /*position權重較重*/
+    position: fixed;
+    /*position權重較重*/
     top: 0;
     left: 0;
-    width: 100%; /*position預設寬高為hug，所以要手動寫w100%*/
+    width: 100%;
+    /*position預設寬高為hug，所以要手動寫w100%*/
 
     display: flex;
     justify-content: space-between;
@@ -184,13 +188,30 @@ div.logo {
 }
 
 /* svg自動 W:100%/H:auto / 其他點陣圖檔，不會自動100%，要寫background-size */
-#topbar .icon-fb {background-image: url(../images/icon-fb.svg);}
-#topbar .icon-ig {background-image: url(../images/icon-ig.svg);}
-#topbar .icon-line {background-image: url(../images/icon-line.svg);}
+#topbar .icon-fb {
+    background-image: url(../images/icon-fb.svg);
+}
 
-#topbar .icon-fb:hover {background-image: url(../images/icon-fb-hover.svg);}
-#topbar .icon-ig:hover {background-image: url(../images/icon-ig-hover.svg);}
-#topbar .icon-line:hover {background-image: url(../images/icon-line-hover.svg);}
+#topbar .icon-ig {
+    background-image: url(../images/icon-ig.svg);
+}
+
+#topbar .icon-line {
+    background-image: url(../images/icon-line.svg);
+}
+
+#topbar .icon-fb:hover {
+    background-image: url(../images/icon-fb-hover.svg);
+}
+
+#topbar .icon-ig:hover {
+    background-image: url(../images/icon-ig-hover.svg);
+}
+
+#topbar .icon-line:hover {
+    background-image: url(../images/icon-line-hover.svg);
+}
+
 /* 主選單 */
 #topbar .menu {
     padding: 0 10px;
@@ -205,6 +226,8 @@ div.logo {
     margin: 10px;
     border-bottom: transparent 2px solid;
     /* 保留hover的空間，以防尺寸變動 */
+
+
 }
 
 #topbar .menu a:hover {
@@ -213,7 +236,7 @@ div.logo {
 }
 
 /* 聯絡我們 */
-#contact{
+#contact {
     height: 100vh;
-background-color: var(--bg-1);
+    background-color: var(--bg-1);
 }
