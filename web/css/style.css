@@ -1,5 +1,13 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC:wght@400;700&family=Oswald:wght@200..700&display=swap');
+
+@font-face {
+    font-family: High_Empathy;
+    src: url(../webfonts/High_Empathy.otf);
+}
+
 /* UTF-8(編碼)一定要在第一行!! */
+/* google font一定要在第二行!! */
 
 /* CSS變數 */
 :root {
@@ -168,7 +176,25 @@ a {
 
 /* 共用區 */
 /* 區塊標題 */
-.title {}
+.title {
+    margin-bottom: 30px;
+}
+
+.title * {
+    /* * =>.title裡面的所有子元素*/
+    text-align: center;
+}
+
+.title h2 {
+    font-family: "High_Empathy", monospace;
+    border-bottom: solid 2px var(--deep);
+}
+
+.title h3 {
+    font-family: "LXGW WenKai Mono TC", monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
 
 
 /* 頁首區 */
@@ -252,7 +278,10 @@ div.logo {
     margin: 10px;
     border-bottom: transparent 2px solid;
     /* 保留hover的空間，以防尺寸變動 */
-
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
 
 }
 
@@ -263,10 +292,40 @@ div.logo {
 
 /* 聯絡我們 */
 #contact {
+    display: flex;
+    flex-direction: column;
+    /*主軸:垂直*/
+    justify-content: center;
+    /*主軸(垂直)對齊:置中*/
+    align-items: center;
+    /*副軸(水平)對齊:置中*/
+
     height: 100vh;
     background-color: var(--bg-1);
     /* 背景影像預設排序高於背景顏色 */
     /* background-image: url(../images/banner_1.jpg); */
+}
+
+#contact.content {
+    display: flex;
+    width: 80%;
+}
+
+#contact.content>* {
+    flex: 1;
+    /*父元素必須設定flex*/
+    margin: 0 15px;
+}
+
+#contact.content h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#contact address {
+    font-size: .8rem;
+    font-style: normal;
+    margin: 20px;
 }
 
 /* 頁尾區 */
