@@ -70,7 +70,19 @@
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <!-- 表單 -->
-                <form action="">表單內容</form>
+                <form name="contactform" id="contactform" action="" method="post" accept-charset="UTF-8">
+                    <label for="userName">*姓名:</label>
+                    <input type="text" name="userName" id="userName" title="姓名欄位" placeholder="請輸入姓名" required>
+                    <br>
+                    <label for="tel">連絡電話:</label>
+                    <input type="tel" name="tel" id="tel" title="電話欄位" placeholder="請輸入電話號碼">
+                    <br>
+                    <label for="email">*Email</label>
+                    <input type="text" name="email" id="email" title="信箱欄位" placeholder="請輸入信箱" required>
+                    <br>
+                    <label for="">留言:</label>
+                    <textarea name="msg" id="msg" rows="5" style="width: 350px;" placeholder="請告訴我們您的意見"></textarea>
+                </form>
             </div>
         </section>
     </main>

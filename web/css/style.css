@@ -306,18 +306,18 @@ div.logo {
     /* background-image: url(../images/banner_1.jpg); */
 }
 
-#contact.content {
+#contact .content {
     display: flex;
     width: 80%;
 }
 
-#contact.content>* {
+#contact .content>* {
     flex: 1;
     /*父元素必須設定flex*/
     margin: 0 15px;
 }
 
-#contact.content h1 {
+#contact .content h1 {
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -326,6 +326,32 @@ div.logo {
     font-size: .8rem;
     font-style: normal;
     margin: 20px;
+}
+
+/* 聯絡表單 */
+#contactform>* {
+    display: block;
+    width: 100%;
+}
+
+#contactform label {
+    margin: 30px 0 10px;
+}
+
+#contactform input,#contactform textarea{
+    border: 1px solid var(--grey);
+    padding: 10px ;
+    border-radius: 5px;
+}
+
+#contactform input:focus,#contactform textarea:focus{
+    outline: 1.5px solid var(--dark);
+}
+
+#contactform input::placeholder, #contactform textarea::placeholder{
+    color: var(--grey);
+    font-size: 0.7rem;
+
 }
 
 /* 頁尾區 */
