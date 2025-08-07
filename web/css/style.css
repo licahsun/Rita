@@ -196,6 +196,84 @@ a {
     font-size: 1.2rem;
 }
 
+/*按鈕區*/
+.btn-anm {
+    /* position: relative; */
+    /* outline: none; */
+    /* text-decoration: none; */
+    border-radius: 99px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-transform: uppercase; */
+    height: 60px;
+    width: 210px !important;
+    /* opacity: 1; */
+
+    /* 重置button預設值 */
+    cursor: pointer;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border: 1px solid var(--leser-3);
+    color: var(--leser-4);
+
+    /* 字距置中 */
+    padding-left: 5px;
+    /*在前面補一個字距的空間，讓視覺置中*/
+    letter-spacing: 5px;
+}
+
+.btn-anm:hover {
+    animation: rotate 1s both;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+
+    75% {
+        transform: rotate(1deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.btn-anm:hover span {
+    animation: storm 1s .1s both;
+}
+
+@keyframes storm {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: translate3d(4px, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(-3px, 0, 0);
+    }
+
+    75% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
 
 /* 頁首區 */
 #topbar {
@@ -292,6 +370,8 @@ div.logo {
 
 /* 聯絡我們 */
 #contact {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     /*主軸:垂直*/
@@ -306,9 +386,15 @@ div.logo {
     /* background-image: url(../images/banner_1.jpg); */
 }
 
+@media(max-width:820px) {
+    #contact{
+        height: auto;
+    }
+}
+
 #contact .content {
     display: flex;
-    width: 80%;
+    /* width: 60%; */
 }
 
 #contact .content>* {
@@ -319,13 +405,29 @@ div.logo {
 
 #contact .content h1 {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 #contact address {
     font-size: .8rem;
     font-style: normal;
     margin: 20px;
+}
+
+#contact figure {
+    position: absolute;
+    width: 300px;
+}
+
+#contact .flower_r {
+    left: 0;
+    bottom: -50px;
+}
+
+#contact .flower_w {
+    right: 0;
+    top: 80px;
+    transform: rotate(-15deg);
 }
 
 /* 聯絡表單 */
@@ -335,20 +437,24 @@ div.logo {
 }
 
 #contactform label {
-    margin: 30px 0 10px;
+    margin: 15px 0 5px;
 }
 
-#contactform input,#contactform textarea{
+#contactform input,
+#contactform textarea {
     border: 1px solid var(--grey);
-    padding: 10px ;
+    padding: 10px;
     border-radius: 5px;
+    width: 512px;
 }
 
-#contactform input:focus,#contactform textarea:focus{
+#contactform input:focus,
+#contactform textarea:focus {
     outline: 1.5px solid var(--dark);
 }
 
-#contactform input::placeholder, #contactform textarea::placeholder{
+#contactform input::placeholder,
+#contactform textarea::placeholder {
     color: var(--grey);
     font-size: 0.7rem;
 
