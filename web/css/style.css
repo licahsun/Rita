@@ -202,7 +202,7 @@ a {
     /* outline: none; */
     /* text-decoration: none; */
     border-radius: 99px;
-    display: flex!important;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     /* text-transform: uppercase; */
@@ -291,7 +291,7 @@ a {
     padding: 10px 30px;
 }
 
-div.logo {
+div .logo {
     /* .對應class */
     width: 55px;
 }
@@ -522,22 +522,22 @@ footer small {
         flex-direction: column;
     }
 
-    footer.sitemap {
+    footer .sitemap {
         margin-top: 30px;
     }
 }
 
 @media (max-width:640px){
-    footer.sitemap{
+    footer .sitemap{
         flex-direction: column;
     }
-    footer.sitemap ul{
+    footer .sitemap ul{
         padding-left: 20px;
     }
-    footer.sitemap li{
+    footer .sitemap li{
         padding: 10px 0;
     }
-    footer.small{
+    footer .small{
         align-self: flex-start;
         margin-top: 30px;
     }
