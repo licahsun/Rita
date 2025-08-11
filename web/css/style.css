@@ -202,7 +202,7 @@ a {
     /* outline: none; */
     /* text-decoration: none; */
     border-radius: 99px;
-    display: flex;
+    display: flex!important;
     justify-content: center;
     align-items: center;
     /* text-transform: uppercase; */
@@ -388,14 +388,19 @@ div.logo {
 }
 
 @media(max-width:820px) {
-    #contact{
+    #contact {
         height: auto;
     }
 }
 
 #contact .content {
     display: flex;
-    /* width: 60%; */
+    width: 80%;
+}
+@media (max-width:640px) {
+    #contact .content{
+        flex-direction: column;
+    }
 }
 
 #contact .content>* {
@@ -432,6 +437,19 @@ div.logo {
     transform: rotate(-15deg);
 }
 
+@media (max-width:820px) {
+    #contact figure {
+        width: 200px;
+    }
+
+}
+
+@media (max-width:640px) {
+    #contact figure {
+        display: none;
+    }
+}
+
 /* 聯絡表單 */
 #contactform>* {
     display: block;
@@ -447,7 +465,8 @@ div.logo {
     border: 1px solid var(--grey);
     padding: 10px;
     border-radius: 5px;
-    width: 512px;
+    font-weight: 600;
+    /* width: 512px; */
 }
 
 #contactform input:focus,
@@ -470,6 +489,8 @@ footer {
     background-color: var(--leser-4);
     color: var(--light);
 }
+
+
 
 footer h2 {
     font-size: 1.5rem;
@@ -494,4 +515,30 @@ footer .sitemap>li {
 
 footer small {
     align-self: flex-end;
+}
+
+@media(max-width:820px) {
+    footer {
+        flex-direction: column;
+    }
+
+    footer.sitemap {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width:640px){
+    footer.sitemap{
+        flex-direction: column;
+    }
+    footer.sitemap ul{
+        padding-left: 20px;
+    }
+    footer.sitemap li{
+        padding: 10px 0;
+    }
+    footer.small{
+        align-self: flex-start;
+        margin-top: 30px;
+    }
 }
