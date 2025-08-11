@@ -337,6 +337,7 @@ div.logo {
 #topbar .menu {
     padding: 0 10px;
     border-radius: 999px;
+    display: flex !important;
     /* 玻璃擬態*/
     /* 漸層色要使用影像屬性 */
     background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
@@ -414,6 +415,7 @@ div.logo {
     margin: 20px;
 }
 
+/*裝飾花朵*/
 #contact figure {
     position: absolute;
     width: 300px;
