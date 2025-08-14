@@ -1,0 +1,544 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC:wght@400;700&family=Oswald:wght@200..700&display=swap');
+
+@font-face {
+    font-family: High_Empathy;
+    src: url(../webfonts/High_Empathy.otf);
+}
+
+/* UTF-8(編碼)一定要在第一行!! */
+/* google font一定要在第二行!! */
+
+/* CSS變數 */
+:root {
+    /* 灰階 */
+    --deep: #444;
+    --dark: #666;
+    --grey: #999;
+    --light: #f1f1f1;
+    /* 背景 */
+    --bg-1: #f2edf0;
+    --bg-2: #e6ece5;
+    --bg-3: #ecf0f4;
+    /* 輔助 */
+    --leser-1: #f3e4e4;
+    --leser-2: #efdbdb;
+    --leser-3: #cdaaab;
+    --leser-4: #8f6b6d;
+    /*透明*/
+    --alpha-w-20: rgba(255, 255, 255, 0.2);
+    --alpha-w-40: rgba(255, 255, 255, 0.4);
+
+    --alpha-b-20: rgba(255, 255, 255, 0.2);
+    /*尺寸*/
+    --ex: 99999;
+
+}
+
+/* CSS Reset */
+* {
+    box-sizing: border-box;
+    /* 不累加內距和邊框 */
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+/* 重置字體 */
+body {
+    /* 需要""的字體名稱有:兩個英文單字含空格、中文字體名稱
+    不需要:單一英文單字字體、有-隔開的字體
+    也可全部都加"" */
+    font-family:
+        /*西文*/
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        /*中文*/
+        "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+    line-height: 1.5;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+    list-style: none;
+}
+
+/*重置圖片 */
+img {
+    display: block;
+    width: 100%;
+}
+
+/* 重置連接 */
+a {
+    /* 對應標籤 */
+    display: block;
+    /*inline不支援尺寸設定，但a常用來設定尺寸，所以直接把inline修改為block*/
+    color: #666;
+    text-decoration: none;
+    /*取消預設底線*/
+    /* 設定在元素本身，不要設定在hover上;未滿動畫時間時，沒有離場動畫，會直接跳掉 */
+    transition: 0.4s;
+}
+
+/* 共用區 */
+/* 區塊標題 */
+.title {
+    margin-bottom: 30px;
+}
+
+.title * {
+    /* * =>.title裡面的所有子元素*/
+    text-align: center;
+}
+
+.title h2 {
+    font-family: "High_Empathy", monospace;
+    border-bottom: solid 2px var(--deep);
+}
+
+.title h3 {
+    font-family: "LXGW WenKai Mono TC", monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/*按鈕區*/
+.btn-anm {
+    /* position: relative; */
+    /* outline: none; */
+    /* text-decoration: none; */
+    border-radius: 99px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    /* text-transform: uppercase; */
+    height: 60px;
+    width: 210px !important;
+    /* opacity: 1; */
+
+    /* 重置button預設值 */
+    cursor: pointer;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border: 1px solid var(--leser-3);
+    color: var(--leser-4);
+
+    /* 字距置中 */
+    padding-left: 5px;
+    /*在前面補一個字距的空間，讓視覺置中*/
+    letter-spacing: 5px;
+}
+
+.btn-anm:hover {
+    animation: rotate 1s both;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+
+    75% {
+        transform: rotate(1deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.btn-anm:hover span {
+    animation: storm 1s .1s both;
+}
+
+@keyframes storm {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: translate3d(4px, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(-3px, 0, 0);
+    }
+
+    75% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* 頁首區 */
+#topbar {
+    /* #對應id */
+    position: fixed;
+    /*position權重較重*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*position預設寬高為hug，所以要手動寫w100%*/
+    z-index: var(--ex);
+
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+div .logo {
+    /* .對應class */
+    width: 55px;
+}
+
+#topbar ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* icon選單 */
+#topbar .icon a {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+
+/* svg自動 W:100%/H:auto / 其他點陣圖檔，不會自動100%，要寫background-size */
+#topbar .icon-fb {
+    background-image: url(../images/icon-fb.svg);
+}
+
+#topbar .icon-ig {
+    background-image: url(../images/icon-ig.svg);
+}
+
+#topbar .icon-line {
+    background-image: url(../images/icon-line.svg);
+}
+
+#topbar .icon-fb:hover {
+    background-image: url(../images/icon-fb-hover.svg);
+}
+
+#topbar .icon-ig:hover {
+    background-image: url(../images/icon-ig-hover.svg);
+}
+
+#topbar .icon-line:hover {
+    background-image: url(../images/icon-line-hover.svg);
+}
+
+/* 主選單 */
+#topbar .menu {
+    padding: 0 10px;
+    border-radius: 999px;
+    display: flex !important;
+    /* 玻璃擬態*/
+    /* 漸層色要使用影像屬性 */
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
+    border: 2px solid var(--alpha-w-40);
+    backdrop-filter: blur(20px);
+    /* 濾鏡的陰影是包含子元素都套用(裡面的文字也會有陰影) */
+    /* filter: drop-shadow(2px 4px 10px rgb(0, 0, 0, 0.2)); */
+    /* 容器陰影，只針對元素本身，子元素不會套用 */
+    box-shadow: 2px 4px 10px #11111155,
+        inset -1px -1px 2px var(--alpha-w-40);
+
+    /* 只包含文字元素的陰影 */
+    /* text-shadow: 2px 4px 10px rgb(0, 0, 0, 0.2); */
+}
+
+#topbar .menu a {
+    margin: 10px;
+    border-bottom: transparent 2px solid;
+    /* 保留hover的空間，以防尺寸變動 */
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+
+}
+
+#topbar .menu a:hover {
+    color: #111;
+    border-bottom: #111 2px solid;
+}
+
+/* 聯絡我們 */
+#contact {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /*主軸:垂直*/
+    justify-content: center;
+    /*主軸(垂直)對齊:置中*/
+    align-items: center;
+    /*副軸(水平)對齊:置中*/
+
+    height: 100vh;
+    background-color: var(--bg-1);
+    /* 背景影像預設排序高於背景顏色 */
+    /* background-image: url(../images/banner_1.jpg); */
+}
+
+@media(max-width:820px) {
+    #contact {
+        height: auto;
+    }
+}
+
+#contact .content {
+    display: flex;
+    width: 80%;
+}
+@media (max-width:640px) {
+    #contact .content{
+        flex-direction: column;
+    }
+}
+
+#contact .content>* {
+    flex: 1;
+    /*父元素必須設定flex*/
+    margin: 0 15px;
+}
+
+#contact .content h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#contact address {
+    font-size: .8rem;
+    font-style: normal;
+    margin: 20px;
+}
+
+/*裝飾花朵*/
+#contact figure {
+    position: absolute;
+    width: 300px;
+}
+
+#contact .flower_r {
+    left: 0;
+    bottom: -50px;
+}
+
+#contact .flower_w {
+    right: 0;
+    top: 80px;
+    transform: rotate(-15deg);
+}
+
+@media (max-width:820px) {
+    #contact figure {
+        width: 200px;
+    }
+
+}
+
+@media (max-width:640px) {
+    #contact figure {
+        display: none;
+    }
+}
+
+/* 聯絡表單 */
+#contactform>* {
+    display: block;
+    width: 100%;
+}
+
+#contactform label {
+    margin: 15px 0 5px;
+}
+
+#contactform input,
+#contactform textarea {
+    border: 1px solid var(--grey);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    /* width: 512px; */
+}
+
+#contactform input:focus,
+#contactform textarea:focus {
+    outline: 1.5px solid var(--dark);
+}
+
+#contactform input::placeholder,
+#contactform textarea::placeholder {
+    color: var(--grey);
+    font-size: 0.7rem;
+
+}
+
+/* 頁尾區 */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: var(--leser-4);
+    color: var(--light);
+}
+
+
+
+footer h2 {
+    font-size: 1.5rem;
+}
+
+footer h2 span {
+    font-size: 1rem;
+}
+
+footer a {
+    color: var(--light);
+}
+
+footer .sitemap {
+    display: flex;
+}
+
+/* [>]為指定第一層，只會套用在第一層 */
+footer .sitemap>li {
+    margin: 0 10px;
+}
+
+footer small {
+    align-self: flex-end;
+}
+
+@media(max-width:820px) {
+    footer {
+        flex-direction: column;
+    }
+
+    footer .sitemap {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width:640px){
+    footer .sitemap{
+        flex-direction: column;
+    }
+    footer .sitemap ul{
+        padding-left: 20px;
+    }
+    footer .sitemap li{
+        padding: 10px 0;
+    }
+    footer .small{
+        align-self: flex-start;
+        margin-top: 30px;
+    }
+}

@@ -1,0 +1,99 @@
+@use "reset"; //use不允許其他語法在他之上
+@use "variables" as*;
+@use "function" as*;
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC:wght@400;700&family=Oswald:wght@200..700&display=swap');
+
+@font-face {
+    font-family: High_Empathy;
+    src: url(../webfonts/High_Empathy.otf);
+}
+
+// 共用區
+// 區塊標題
+.title {
+    margin: $space-sm 0 $space-xl;
+
+    * {
+        //title裡面的所有子元素
+        text-align: center;
+    }
+
+    h2 {
+        font-family: $family-en;
+        font-size: $f-s-xxxl;
+        @include border-b;
+    }
+
+    h3 {
+        font-family: $family-tc;
+        font-size: $f-s-lg;
+
+    }
+}
+
+.logo {
+    width: 55px;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    margin: $space-sm;
+
+}
+
+#contactform {
+    @extend %btn-animat;
+}
+
+
+//按鈕區
+.btn-animat {
+    border-radius: $radius-ex;
+}
+
+#topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $w-100;
+    z-index: $z-ex;
+    @extend %flex-between;
+    padding: $space-sm $space-lg;
+
+    ul {
+        @extend %flex-end;
+    }
+
+    .menu {
+        padding: $space-x-sm;
+        border-radius: $radius-ex;
+        @include glassmorphism;
+
+        a {
+            font-family: $family-en;
+            font-weight: $f-w-b;
+            margin: $space-sm;
+            @include border-b($width: 2px, $color: transparent);
+
+            &:hover {
+                color: $Black;
+                @include border-b($width: 2px, $color:$Black);
+            }
+        }
+
+    }
+
+
+}
+
+//迴圈不用調用，直接編譯語法(不可寫入function)
+@each $social in fb, ig, line {
+    .icon-#{$social} {
+        background-image:url(../images/icon-#{$social}.svg);
+
+        &:hover {
+            background-image: url(../images/icon-#{$social}-hover);
+        }
+    }
+}

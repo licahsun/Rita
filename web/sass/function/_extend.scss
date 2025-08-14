@@ -1,0 +1,24 @@
+@use "../variables/" as *;
+@use "./mixin" as*;
+//extend也在function資料夾中，不可直接調用整個function，只需調用mixin檔案
+
+%flex-center{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+%btn-animat{
+    border-radius: $radius-ex;
+    @extend %flex-center;
+    height: 60px;
+    width: 210px;
+    cursor:pointer;
+    margin: $space-md auto;
+    @include bordered;
+
+    &:hover{
+        @include amt($name:myRotate);
+    }
+
+}
