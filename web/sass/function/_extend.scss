@@ -2,23 +2,53 @@
 @use "./mixin" as*;
 //extend也在function資料夾中，不可直接調用整個function，只需調用mixin檔案
 
-%flex-center{
+%flex-center {
     display: flex !important;
     justify-content: center;
     align-items: center;
 }
 
-%btn-animat{
+%btn-animat {
     border-radius: $radius-ex;
     @extend %flex-center;
     height: 60px;
     width: 210px;
-    cursor:pointer;
+    cursor: pointer;
     margin: $space-md auto;
     @include bordered;
 
-    &:hover{
-        @include amt($name:myRotate);
+    &:hover {
+        @include amt-slow($name: myRotate);
     }
 
+}
+
+%flex-between{
+display:flex;
+justify-content: center;
+align-items: center;
+}
+%flex-end{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+%input-style {
+    // border: 1px solid var(--grey);
+    @include bordered;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    color:$leser-4;
+    font-weight: $f-w-b;
+
+    &:focus{
+        outline:2px solid $leser-3;
+    }
+    &::placeholder{
+        color:$leser-3;
+        font-size:$f-s-sm;
+        font-weight: 400;
+    }
 }

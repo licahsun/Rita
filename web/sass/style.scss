@@ -44,56 +44,225 @@
 
 #contactform {
     @extend %btn-animat;
-}
 
-
-//按鈕區
-.btn-animat {
-    border-radius: $radius-ex;
-}
-
-#topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: $w-100;
-    z-index: $z-ex;
-    @extend %flex-between;
-    padding: $space-sm $space-lg;
-
-    ul {
-        @extend %flex-end;
+    label {
+        margin: 15px 0 5px;
     }
 
-    .menu {
-        padding: $space-x-sm;
-        border-radius: $radius-ex;
-        @include glassmorphism;
 
-        a {
-            font-family: $family-en;
-            font-weight: $f-w-b;
-            margin: $space-sm;
-            @include border-b($width: 2px, $color: transparent);
+    //按鈕區
+    .btn-animat {
+        border-radius: $radius-ex;
+    }
+
+    #topbar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: $w-100;
+        z-index: $z-ex;
+        @extend %flex-between;
+        padding: $space-sm $space-lg;
+
+        ul {
+            @extend %flex-end;
+        }
+
+        .menu {
+            padding: 0 10px;
+            border-radius: 999px;
+            display: flex !important;
+            /* 玻璃擬態*/
+            /* 漸層色要使用影像屬性 */
+            background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
+            border: 2px solid var(--alpha-w-40);
+            backdrop-filter: blur(20px);
+            /* 濾鏡的陰影是包含子元素都套用(裡面的文字也會有陰影) */
+            /* filter: drop-shadow(2px 4px 10px rgb(0, 0, 0, 0.2)); */
+            /* 容器陰影，只針對元素本身，子元素不會套用 */
+            box-shadow: 2px 4px 10px #11111155,
+                inset -1px -1px 2px var(--alpha-w-40);
+
+            /* 只包含文字元素的陰影 */
+            /* text-shadow: 2px 4px 10px rgb(0, 0, 0, 0.2); */
+
+            a {
+                font-family: $family-en;
+                font-weight: $f-w-b;
+                margin: $space-sm;
+                @include border-b($width: 2px, $color: transparent);
+
+                &:hover {
+                    color: $Black;
+                    @include border-b($width: 2px, $color: $Black);
+                }
+            }
+
+        }
+
+
+    }
+
+    //迴圈不用調用，直接編譯語法(不可寫入function)
+    @each $social in fb, ig, line {
+        .icon-#{$social} {
+            background-image:url(../images/icon-#{$social}.svg);
 
             &:hover {
-                color: $Black;
-                @include border-b($width: 2px, $color:$Black);
+                background-image: url(../images/icon-#{$social}-hover);
+            }
+        }
+    }
+}
+
+/*聯絡我們˙*/
+#contact {
+    position: relative;
+    overflow: hidden;
+    @extend %flex-center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: $bg-1;
+
+
+    @media($mediaMd) {
+        height: auto;
+    }
+
+    .content {
+        display: flex;
+        width: $w-80;
+
+        @media ($mediaSm) {
+            flex-direction: column;
+        }
+
+        >* {
+            flex: 1;
+            margin: $space-x-xl;
+        }
+
+        h1 {
+            font-size: $f-s-xl;
+            font-weight: $f-w-b; //600
+
+        }
+
+        address {
+            font-size: $f-s-sm;
+            font-style: normal;
+            margin: $space-y-md;
+        }
+
+        iframe {
+            width: $w-100;
+            height: 300px;
+        }
+
+        /*聯絡表單*/
+        #contactform {
+            >* {
+                display: block;
+                width: $w-100;
+            }
+
+            label {
+                margin: 10px 0 $space-xxs;
+            }
+
+            .btn-animat {
+                @extend %btn-animat;
+            }
+
+            input {
+                @extend %input-style;
+            }
+
+            textarea {
+                @extend %input-style;
+            }
+        }
+    }
+
+    figure {
+        position: absolute;
+        width: 300px;
+
+        @media ($mediaMd) {
+            width: 200px;
+        }
+
+        @media ($mediaSm) {
+            display: none;
+        }
+    }
+
+    .flower_r {
+        left: 0;
+        bottom: -50px;
+    }
+
+    .flower_w {
+        right: 0;
+        top: 80px;
+        transform: rotate(-15deg);
+    }
+}
+
+/*頁尾區*/
+footer {
+    @extend %flex-between;
+    padding: $space-md $space-xl;
+    background-color: $leser-4;
+    color: $Light;
+
+    @media ($mediaMd) {
+        flex-direction: column;
+    }
+
+    a {
+        color: $Light;
+    }
+
+    h2 {
+        font-size: $f-s-xl;
+
+        span {
+            font-size: $f-s-md;
+        }
+    }
+
+    .sitemap {
+        display: flex;
+
+        @media ($mediaMd) {
+            margin-top: $space-xl;
+        }
+
+        @media (max-width:965px) {
+            flex-direction: column;
+
+            ul {
+                padding-left: 20px;
+
+                li {
+                    padding: $space-y-xs;
+                }
             }
         }
 
+        >li {
+            margin: $space-x-xs;
+        }
     }
 
+    small {
+        align-self: flex-end;
 
-}
-
-//迴圈不用調用，直接編譯語法(不可寫入function)
-@each $social in fb, ig, line {
-    .icon-#{$social} {
-        background-image:url(../images/icon-#{$social}.svg);
-
-        &:hover {
-            background-image: url(../images/icon-#{$social}-hover);
+        @media ($mediaSm) {
+            align-self: flex-start;
+            margin-top: $space-xl;
         }
     }
 }

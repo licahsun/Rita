@@ -5,20 +5,20 @@
 
 }
 
-@mixin bordered($width: 1px, $color: $lesser-4) {
+@mixin bordered($width: 1px, $color: $leser-4) {
     border: solid $width $color;
 }
 
-@mixin amt-slow ($name, $speed) {
-    animation: $name $speed;
+@mixin amt-slow ($name, $speed:.75s) {
+    animation: $name $speed both;
 }
 
-@mixin glassmorphism{
-background-image: linear-gradient(to bottom right,$alpha-w-40,$alpha-w-70);
+@mixin glassmorphism {
+    background-image: linear-gradient(to bottom right, $alpha-w-40, $alpha-w-70);
 
-@include border($width:2px,$color:$alpha-w-40);
+    @include bordered($width: 2px, $color:$alpha-w-40);
 
-backdrop-filter: blur(10px);
-box-shadow: 2px 2px 5px $alpha-b-20;
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 5px $alpha-b-20;
 
 }

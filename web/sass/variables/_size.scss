@@ -1,9 +1,11 @@
 // spacing
+$space-xxs: 5px;
 $space-sm: 15px;
 $space-md: 20px;
 $space-lg: 25px;
 $space-xl: 30px;
 
+$space-x-xs: 0 10px;
 $space-x-sm: 0 15px;
 $space-x-md: 0 20px;
 $space-x-lg: 0 25px;
@@ -14,6 +16,8 @@ $space-y-sm: 15px 0;
 $space-y-md: 20px 0;
 $space-y-lg: 25px 0;
 $space-y-xl: 30px 0;
+
+$space-label:10px 0 5px;
 
 // radius(px)
 $radius-sm: 6px;
