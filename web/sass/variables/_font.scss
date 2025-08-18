@@ -1,7 +1,7 @@
 // font-family
-$family-en: Rosaline, serif;
-$tc: "LXGW WenKai TC";
-$family-tc: #{$tc}, cursive;
+$family-dispaly: Rosaline, serif;
+$family-en: "Ubuntu", sans-serif;
+$family-tc: "LXGW WenKai TC", cursive;
 
 // font-size
 $f-s-xs: .75rem;
@@ -14,4 +14,6 @@ $f-s-xxxl: 2rem;
 $f-s-ex: 4rem;
 
 //font-weight
-$f-w-b:700;
+$f-w-r: 400;
+$f-w-m: 600;
+$f-w-b: 700;

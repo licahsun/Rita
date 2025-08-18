@@ -1,33 +1,64 @@
-@use "reset"; //use不允許其他語法在他之上
-@use "variables" as*;
-@use "function" as*;
-@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC:wght@400;700&family=Oswald:wght@200..700&display=swap');
+@use "./reset"; //@use 規則必須在任何其他規則之前寫入
+@use "./keyrames";
+@use "./variables" as *;
+@use "./function" as *;
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&display=swap');
 
 @font-face {
-    font-family: High_Empathy;
-    src: url(../webfonts/High_Empathy.otf);
+    font-family: Avenue;
+    src: url(../webfonts/Avenue\ de\ Madison.ttf);
 }
 
-// 共用區
+@font-face {
+    font-family: Rosaline;
+    src: url(../webfonts/Rosaline.otf);
+}
+
+/*---------- 共用區 ----------*/
 // 區塊標題
 .title {
-    margin: $space-sm 0 $space-xl;
+    margin: $space-ex 0 $space-xl;
 
     * {
-        //title裡面的所有子元素
+        //.title裡面的所有子孫
         text-align: center;
     }
 
     h2 {
-        font-family: $family-en;
+        position: relative;
+        font-family: $family-dispaly;
         font-size: $f-s-xxxl;
         @include border-b;
+        font-weight: $f-w-b;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            border-radius: $radius-ex;
+            background-color: $lesser-4;
+        }
+
+        &::before {
+            top: -3px;
+            left: -10px;
+
+            width: 15px;
+            height: 15px;
+        }
+
+        &::after {
+            bottom: 10px;
+            right: -7px;
+
+            width: 10px;
+            height: 10px;
+        }
     }
 
     h3 {
         font-family: $family-tc;
         font-size: $f-s-lg;
-
     }
 }
 
@@ -36,87 +67,144 @@
 }
 
 .icon {
-    width: 35px;
-    height: 35px;
-    margin: $space-sm;
-
+    a {
+        width: 35px;
+        height: 35px;
+        margin: $space-xxs;
+    }
 }
 
-#contactform {
-    @extend %btn-animat;
+//迴圈不用調用，直接編譯語法(不可寫入function)
+@each $social in fb, ig, line {
+    .icon-#{$social} {
+        background-image: url(../images/icon-#{$social}.svg);
 
-    label {
-        margin: 15px 0 5px;
+        &:hover {
+            background-image: url(../images/icon-#{$social}-hover.svg);
+        }
+    }
+}
+
+.more {
+    width: 100px;
+    // height: 50px;  //行高設定跟高度一樣，文字即可垂直置中
+    line-height: 50px; //單行文字垂直置中，可直接設定行高取代高度
+    text-align: center;
+    background-color: $lesser-4;
+    margin-top: $space-lg;
+    color: $Light;
+    border-radius: $radius-ex;
+}
+
+/*---------- 頁首區 ----------*/
+#topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $w-100;
+    z-index: $z-ex;
+    @extend %flex-between;
+    padding: $space-xs $space-xl;
+
+    ul {
+        @extend %flex-end;
     }
 
-
-    //按鈕區
-    .btn-animat {
+    .menu {
+        padding: $space-x-xs;
         border-radius: $radius-ex;
-    }
+        @include glassmorphism;
 
-    #topbar {
-        display: flex;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: $w-100;
-        z-index: $z-ex;
-        @extend %flex-between;
-        padding: $space-sm $space-lg;
-
-        ul {
-            @extend %flex-end;
-        }
-
-        .menu {
-            padding: 0 10px;
-            border-radius: 999px;
-            display: flex !important;
-            /* 玻璃擬態*/
-            /* 漸層色要使用影像屬性 */
-            background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
-            border: 2px solid var(--alpha-w-40);
-            backdrop-filter: blur(20px);
-            /* 濾鏡的陰影是包含子元素都套用(裡面的文字也會有陰影) */
-            /* filter: drop-shadow(2px 4px 10px rgb(0, 0, 0, 0.2)); */
-            /* 容器陰影，只針對元素本身，子元素不會套用 */
-            box-shadow: 2px 4px 10px #11111155,
-                inset -1px -1px 2px var(--alpha-w-40);
-
-            /* 只包含文字元素的陰影 */
-            /* text-shadow: 2px 4px 10px rgb(0, 0, 0, 0.2); */
-
-            a {
-                font-family: $family-en;
-                font-weight: $f-w-b;
-                margin: $space-sm;
-                @include border-b($width: 2px, $color: transparent);
-
-                &:hover {
-                    color: $Black;
-                    @include border-b($width: 2px, $color: $Black);
-                }
-            }
-
-        }
-
-
-    }
-
-    //迴圈不用調用，直接編譯語法(不可寫入function)
-    @each $social in fb, ig, line {
-        .icon-#{$social} {
-            background-image:url(../images/icon-#{$social}.svg);
+        a {
+            font-family: $family-en;
+            font-weight: $f-w-b;
+            margin: $space-xs;
+            @include border-b ($width: 2px, $color: transparent);
 
             &:hover {
-                background-image: url(../images/icon-#{$social}-hover);
+                color: $Black;
+                @include border-b ($width: 2px, $color: $Black);
             }
         }
     }
 }
 
-/*聯絡我們˙*/
+/* 主要內容區*/
+#index {
+    section {
+        @extend %flex-center;
+        flex-direction: column;
+        height: 100vh;
+    }
+}
+
+.list-box {
+    display: flex;
+    gap: $space-xl;
+    width: $w-80;
+    max-width: 1100px; // 集中注意力在中間
+
+    .item {
+        flex: 1;
+        @include bordered;
+        border-radius: $radius-md;
+        overflow: hidden; //超過圓角被隱藏
+    }
+}
+
+/* 最新消息 */
+#news {
+    background-color: $bg-1;
+
+    figure {
+        height: 30vh;
+
+        img {
+            @extend %img-cover;
+        }
+    }
+
+    .text-box {
+        padding: $space-md;
+
+        h2 {
+            font-size: $f-s-lg;
+            font-weight: $f-w-m;
+            margin-bottom: $space-xs;
+        }
+
+        p {
+            text-align: justify; //齊行(英文文案不建議使用)
+            @extend %multiple-lines;
+            -webkit-line-clamp: 4;
+        }
+    }
+}
+
+// 服務項目
+#service {
+    .item {
+        height: 50vh;
+
+        background-size: cover; //自動縮放，並剪裁掉右下圖片範圍
+        background-position: center; //背景置中要另外寫
+
+        &:nth-child(1) {
+            background-image: url(../images/pt_svc1.jpg);
+        }
+        &:nth-child(2) {
+            background-image: url(../images/pt_svc2.jpg);
+        }
+        &:nth-child(3) {
+            background-image: url(../images/pt_svc3.jpg);
+        }
+        &:nth-child(4) {
+            background-image: url(../images/pt_svc4.jpg);
+        }
+    }
+}
+
+/* 聯絡我們 */
 #contact {
     position: relative;
     overflow: hidden;
@@ -125,8 +213,7 @@
     height: 100vh;
     background-color: $bg-1;
 
-
-    @media($mediaMd) {
+    @media ($mediaMd) {
         height: auto;
     }
 
@@ -145,8 +232,7 @@
 
         h1 {
             font-size: $f-s-xl;
-            font-weight: $f-w-b; //600
-
+            font-weight: $f-w-m;
         }
 
         address {
@@ -160,7 +246,7 @@
             height: 300px;
         }
 
-        /*聯絡表單*/
+        /* 聯絡表單 */
         #contactform {
             >* {
                 display: block;
@@ -168,7 +254,7 @@
             }
 
             label {
-                margin: 10px 0 $space-xxs;
+                margin: $space-label;
             }
 
             .btn-animat {
@@ -183,11 +269,12 @@
                 @extend %input-style;
             }
         }
+
     }
 
     figure {
         position: absolute;
-        width: 300px;
+        width: 250px;
 
         @media ($mediaMd) {
             width: 200px;
@@ -198,26 +285,27 @@
         }
     }
 
-    .flower_r {
+    .flower_1 {
         left: 0;
-        bottom: -50px;
+        bottom: -30px;
     }
 
-    .flower_w {
-        right: 0;
-        top: 80px;
-        transform: rotate(-15deg);
+    .flower_2 {
+        right: -30px;
+        top: 110px;
+        transform: rotate(-30deg);
     }
+
 }
 
-/*頁尾區*/
+/* 頁尾區 */
 footer {
     @extend %flex-between;
     padding: $space-md $space-xl;
-    background-color: $leser-4;
+    background-color: $lesser-4;
     color: $Light;
 
-    @media ($mediaMd) {
+    @media ($mediaLg) {
         flex-direction: column;
     }
 
@@ -240,11 +328,11 @@ footer {
             margin-top: $space-xl;
         }
 
-        @media (max-width:965px) {
+        @media ($mediaSm) {
             flex-direction: column;
 
             ul {
-                padding-left: 20px;
+                padding-left: $space-md;
 
                 li {
                     padding: $space-y-xs;

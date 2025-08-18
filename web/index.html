@@ -1,41 +1,164 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" href="../old-style.css">
-    <title>Document</title>
+    <title>互動9-芮塔花室</title>
+    <!-- favicon必須是正方型，16*16(一般會做三倍48*48) -->
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./css/style.min.css">
 </head>
-
 <body>
+    <!-- 頁首區 -->
     <header id="topbar">
-        <!-- Logo區 -->
+        <!-- logo區 -->
         <div class="logo">
             <img src="./images/logo_b.svg" alt="logo">
         </div>
         <!-- 導覽列 -->
         <nav class="navigation">
-            <!-- icon選單 ul>li*3>a-->
+            <!-- icon選單 ul>li*3>a -->
             <ul class="icon">
                 <li><a class="icon-fb" href="#"></a></li>
                 <li><a class="icon-ig" href="#"></a></li>
                 <li><a class="icon-line" href="#"></a></li>
             </ul>
 
-            <!-- 主選單 -->
-            <ul class="menu"><!-- ul>li*6>a -->
+            <!-- 主選單  ul>li*6>a -->
+            <ul class="menu">
                 <li><a href="./index.html">HOME</a></li>
-                <li><a href="#">NEWS</a></li> <!-- #表示尚未決定的頁面 -->
+                <li><a href="#">NEWS</a></li>
                 <li><a href="#">SERVICE</a></li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="index">
+        <section id="banner">BANNER</section>
+        <section id="news">
+            <!-- 區塊標題 -->
+            <header class="title">
+                <h2>NEWS</h2>
+                <h3>最新消息</h3>
+            </header>
+            <!-- 列表區塊 -->
+            <div class="list-box">
+                <!-- article.item*3>a>figure+div.text-box>h2+p -->
+                 <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news1.jpg" alt=""></figure>
+                        <div class="text-box">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus debitis mollitia ipsa, laborum aliquid nesciunt cum sunt aperiam commodi maxime, dolore voluptates, dolor molestiae odio. Ad hic excepturi exercitationem odit.</p>
+                        </div>
+                    </a>
+                 </article>
+                 <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news2.jpg" alt=""></figure>
+                        <div class="text-box">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore esse corporis ut, error facere est, reiciendis deserunt voluptates alias voluptate cumque itaque. Modi magnam numquam totam ea earum a officia.adipisicing elit. Voluptatibus nam quas error quam explicabo? </p>
+                        </div>
+                    </a>
+                 </article>
+                 <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news3.jpg" alt=""></figure>
+                        <div class="text-box">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magni harum magnam illo, nam, aliquam tenetur eos facere earum nisi, sequi numquam. Velit, consequatur consectetur accusantium architecto accusamus dignissimos ratione.</p>
+                        </div>
+                    </a>
+                 </article>
+            </div>
+            <a class="more" href="#">More</a>
+        </section>
+        <section id="service">
+            <!-- 區塊標題 -->
+            <header class="title">
+                <h2>SERVICE</h2>
+                <h3>服務項目</h3>
+            </header>
+            <!-- Emmet縮寫：(定義同階層)，[設定屬性&值]，{設定內容} -->
+            <!-- ul.list-box>li.item*4>a[href="#"]>h2{SERVICE TITEL}+p -->
+            <ul class="list-box">
+                <li class="item">
+                    <a href="#">
+                        <h2>SERVICE TITEL</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed facere quia, iure ex praesentium amet tempore exercitationem tenetur! Fugit, mollitia at? Laboriosam ipsa, vitae eos facilis repellendus aperiam blanditiis culpa.</p>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <h2>SERVICE TITEL</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed facere quia, iure ex praesentium amet tempore exercitationem tenetur! Fugit, mollitia at? Laboriosam ipsa, vitae eos facilis repellendus aperiam blanditiis culpa.</p>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <h2>SERVICE TITEL</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed facere quia, iure ex praesentium amet tempore exercitationem tenetur! Fugit, mollitia at? Laboriosam ipsa, vitae eos facilis repellendus aperiam blanditiis culpa.</p>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <h2>SERVICE TITEL</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed facere quia, iure ex praesentium amet tempore exercitationem tenetur! Fugit, mollitia at? Laboriosam ipsa, vitae eos facilis repellendus aperiam blanditiis culpa.</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section id="video">
+            <!-- 區塊標題 -->
+            <header class="title">
+                <h2>VIDEO</h2>
+                <h3>相關影片</h3>
+            </header>
+        </section>
+        <section id="about">
+            <!-- 區塊標題 -->
+            <header class="title">
+                <h2>ABOUT</h2>
+                <h3>關於我們</h3>
+            </header>
+        </section>
+    </main>
+    <!-- 頁尾區 -->
+    <footer>
+        <h2>芮塔花室 <span>Rita Flower</span></h2>
+        <nav>
+            <ul class="sitemap">
+                <li><a href="./index.html">HOME</a></li>
+                <li>
+                    <a href="#">NEWS</a>
+                    <!-- 子選單 -->
+                    <ul>
+                        <li><a href="#">優惠活動</a></li>
+                        <li><a href="#">媒體報導</a></li>
+                        <li><a href="#">商店公告</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">SERVICE</a>
+                    <!-- 子選單 -->
+                    <ul>
+                        <li><a href="#">服務項目1</a></li>
+                        <li><a href="#">服務項目2</a></li>
+                        <li><a href="#">服務項目3</a></li>
+                        <li><a href="#">服務項目4</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="#">VIDEO</a></li>
                 <li><a href="./contact.html">CONTACT</a></li>
             </ul>
         </nav>
+        <small>Copyright &copy; 芮塔花室 Rita Flower.</small>
+    </footer>
 
-    </header>
 </body>
-
 </html>
