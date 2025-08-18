@@ -127,6 +127,19 @@ a {
   align-items: center;
 }
 
+#news .text-box p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+#news figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
 #contactform, #contact .content #contactform .btn-animat {
   border-radius: 99px;
   height: 60px;
@@ -183,6 +196,7 @@ a {
   text-align: center;
 }
 .title h2 {
+  position: relative;
   font-family: Rosaline, serif;
   font-size: 2rem;
   border-bottom: solid 3px #393a3a;
@@ -190,6 +204,26 @@ a {
 .title h3 {
   font-family: LXGW WenKai TC, cursive;
   font-size: 1.2rem;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  background-color: #8f6b6d;
+  top: -5px;
+  left: -10px;
+  border-radius: 99px;
+  width: 15px;
+  height: 15px;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  background-color: #8f6b6d;
+  bottom: -5px;
+  right: -10px;
+  border-radius: 99px;
+  width: 10px;
+  height: 10px;
 }
 
 .logo {
@@ -261,6 +295,52 @@ a {
 }
 #contactform .icon-line:hover {
   background-image: url(../images/icon-line-hover);
+}
+#contactform .more {
+  width: 100px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #8f6b6d;
+  margin-top: 25px;
+  color: #f2f7fa;
+  border-radius: 99px;
+}
+
+#index section {
+  flex-direction: column;
+  height: 100vh;
+}
+
+.list-box {
+  display: flex;
+  gap: 30px;
+  width: 80%;
+  max-width: 1100px;
+}
+.list-box .item {
+  flex: 1;
+  border: solid 1px #8f6b6d;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+#news {
+  background-color: #f2edf0;
+}
+#news figure {
+  height: 30vh;
+}
+#news .text-box {
+  padding: 20px;
+}
+#news .text-box h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+#news .text-box p {
+  text-align: justify;
+  -webkit-line-clamp: 6;
 }
 
 /*聯絡我們˙*/

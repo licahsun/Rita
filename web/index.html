@@ -10,32 +10,116 @@
 </head>
 
 <body>
-    <header id="topbar">
-        <!-- Logo區 -->
-        <div class="logo">
-            <img src="./images/logo_b.svg" alt="logo">
-        </div>
-        <!-- 導覽列 -->
-        <nav class="navigation">
-            <!-- icon選單 ul>li*3>a-->
-            <ul class="icon">
-                <li><a class="icon-fb" href="#"></a></li>
-                <li><a class="icon-ig" href="#"></a></li>
-                <li><a class="icon-line" href="#"></a></li>
-            </ul>
+    <header id="topbar"></header>
 
-            <!-- 主選單 -->
-            <ul class="menu"><!-- ul>li*6>a -->
+    <main id="index"></main>
+    <section id="banner">BANNER</section>
+    <section id="news">
+        <header class="title">
+            <h2>NEWS</h2>
+            <h3>最新消息</h3>
+        </header>
+        <div class="list-box">
+            <!-- article.item*3>a>figure+div.text-box>h2+p -->
+            <article class="item">
+                <a href="#">
+                    <figure><img src="./images/pt_news1.jpg" alt=""></figure>
+                    <div class="text-box">
+                        <h2>NEWS TITLE</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque ad architecto praesentium
+                            eos odio in iure, repellat deserunt sapiente est!</p>
+                    </div>
+                </a>
+            </article>
+            <article class="item">
+                <a href="#">
+                    <figure><img src="./images/pt_news2.jpg" alt=""></figure>
+                    <div class="text-box">
+                        <h2>NEWS TITLE</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore ipsam eius assumenda
+                            beatae. Qui possimus omnis assumenda, quod reprehenderit sit.</p>
+                    </div>
+                </a>
+            </article>
+            <article class="item">
+                <a href="#">
+                    <figure><img src="./images/pt_news3.jpg" alt=""></figure>
+                    <div class="text-box">
+                        <h2>NEWS TITLE</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptates aut sequi et
+                            voluptatum quas? Qui nostrum dicta minus minima!</p>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+    <section id="service">
+        <header class="title">
+            <h2>SERVICE</h2>
+            <h3>服務項目</h3>
+        </header>
+        <!-- Emmet縮寫:(定義同階層)，[設定屬性&值]，{設定內容} -->
+        <!-- ul.list-box>li.item*4>a[href="#"]>h2{SERVICE TITLE}+P -->
+        <ul class="list-box">
+            <li class="item">
+                <a href="#">
+                    <h2>SERVICE TITLE</h2>
+                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam perspiciatis fugiat id
+                        praesentium doloribus alias ea asperiores laborum, dolores voluptatum? Odit totam rerum
+                        reiciendis voluptatibus excepturi. Saepe quos obcaecati inventore!</P>
+                </a>
+            </li>
+            <li class="item">
+                <a href="#">
+                    <h2>SERVICE TITLE</h2>
+                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores recusandae quibusdam alias
+                        voluptatum nam laboriosam voluptate, voluptatibus optio consectetur, nostrum aliquam labore
+                        saepe iste tempora quisquam numquam, libero cum minima!</P>
+                </a>
+            </li>
+            <li class="item">
+                <a href="#">
+                    <h2>SERVICE TITLE</h2>
+                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, quidem quisquam voluptate dicta
+                        voluptatem, quibusdam quod labore sunt ab cumque doloribus animi quae. Hic consequatur
+                        voluptatum repudiandae omnis veniam et.</P>
+                </a>
+            </li>
+            <li class="item">
+                <a href="#">
+                    <h2>SERVICE TITLE</h2>
+                    <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, maiores! Maiores provident
+                        vel totam repellendus omnis aliquid iste, consectetur nostrum odio, facilis animi ut sunt
+                        soluta, officiis minima facere non.</P>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section id=" video">
+        <header class="title">
+            <h2>VIDEO</h2>
+            <h3>相關影片</h3>
+        </header>
+    </section>
+    <section id="about">
+        <header class="title">
+            <h2>ABOUT</h2>
+            <h3>關於我們</h3>
+        </header>
+    </section>
+    </main>
+
+    <footer>
+        <h2>芮塔花室<span>Rita Flower</span></h2>
+        <nav>
+            <ul class="sitemap">
                 <li><a href="./index.html">HOME</a></li>
-                <li><a href="#">NEWS</a></li> <!-- #表示尚未決定的頁面 -->
-                <li><a href="#">SERVICE</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">VIDEO</a></li>
-                <li><a href="./contact.html">CONTACT</a></li>
+                <li><a href="#">優惠活動</a></li>
+                <li><a href="#">媒體報導</a></li>
             </ul>
         </nav>
-
-    </header>
+    </footer>
+</body>
 </body>
 
 </html>

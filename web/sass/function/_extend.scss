@@ -8,6 +8,19 @@
     align-items: center;
 }
 
+%multiple-line{ //多行省略
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+}
+
+%img-cover{
+    object-fit: cover;
+    height: 100%;
+    //width:100%  (reset已設定過)
+}
+
 %btn-animat {
     border-radius: $radius-ex;
     @extend %flex-center;
