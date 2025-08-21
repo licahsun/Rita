@@ -333,14 +333,89 @@
 // 關於我們
 #about {
     position: relative;
-    background-color:$bg-1;
+    background-color: $bg-1;
+
+    div {
+        position: absolute;
+        z-index: 1;
+        width: 60%;
+        height: 100%;
+        background-color: $alpha-w-70;
+
+        @extend %flex-center;
+        flex-direction: column;
+
+        @media ($mediaMd){
+            width: 90%;
+        }
+
+        p {
+            width: 90%;
+            margin-bottom: 50px;
+            padding-right: $space-xs;
+            overflow: auto;
+            // color: red;
+
+            &::-webkit-scroller {
+                //主要滾動條，包含按鈕
+                //主要卷軸
+                background-color: $lesser-1;
+                width: 12px; //控制垂直卷軸
+                height: 12px; //控制水平卷軸
+            }
+
+            &::-webkit-scroller-button {
+                //上下左右按鈕
+                // background-color: $lesser-3;
+                width: 12px; //控制水平卷軸
+                height: 12px; //控制垂直卷軸
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                &:vertical:single-button:start {
+                    background-image: url(../images/arrow-up.svg);
+                }
+
+                &:vertical:single-button:end {
+                    background-image: url(../images/arrow-down.svg);
+                }
+
+                &:horizontal:single-button:start {
+                    background-image: url(../images/arrow-left.svg);
+                }
+
+                &:horizontal:single-button:end {
+                    background-image: url(../images/arrow-right.svg);
+                }
+            }
+
+
+
+
+
+
+
+
+            &::-webkit-scroller-thumb {
+                //滾動手柄
+                background-color: $lesser-4;
+                border-radius: $radius-ex;
+            }
+
+            &::-webkit-scroller-track {
+                //滾動軌道，不包含按鈕
+                background-color: $bg-2;
+
+            }
+        }
+    }
 
     video {
-        position: absolute;
+        // position: absolute;
         @extend %img-cover;
-        filter:brightness(80%);
+        mix-blend-mode: overlay;
+        filter: brightness(80%);
         // opacity:.3;
-        
     }
 }
 
@@ -485,6 +560,11 @@
 
             textarea {
                 @extend %input-style;
+                border-bottom-right-radius: 0;
+
+                &::-webkit-resizer {
+                    background-image: url(../images/arrow-45.svg);
+                }
             }
         }
 

@@ -171,7 +171,7 @@ a {
   }
 }
 /* keyframes end*/
-#index section, #video div, #contact, #contact .content #contactform .btn-animat {
+#index section, #video div, #about div, #contact, #contact .content #contactform .btn-animat {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -510,8 +510,52 @@ a {
   position: relative;
   background-color: #f2edf0;
 }
-#about video {
+#about div {
   position: absolute;
+  z-index: 1;
+  width: 60%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  flex-direction: column;
+}
+#about div p {
+  width: 90%;
+  margin-bottom: 50px;
+  padding-right: 10px;
+  overflow: auto;
+}
+#about div p::-webkit-scroller {
+  background-color: #f3e4e4;
+  width: 12px;
+  height: 12px;
+}
+#about div p::-webkit-scroller-button {
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#about div p::-webkit-scroller-button:vertical:single-button:start {
+  background-image: url(../images/arrow-up.svg);
+}
+#about div p::-webkit-scroller-button:vertical:single-button:end {
+  background-image: url(../images/arrow-down.svg);
+}
+#about div p::-webkit-scroller-button:horizontal:single-button:start {
+  background-image: url(../images/arrow-left.svg);
+}
+#about div p::-webkit-scroller-button:horizontal:single-button:end {
+  background-image: url(../images/arrow-right.svg);
+}
+#about div p::-webkit-scroller-thumb {
+  background-color: #8f6b6d;
+  border-radius: 99px;
+}
+#about div p::-webkit-scroller-track {
+  background-color: #e6ece5;
+}
+#about video {
+  mix-blend-mode: overlay;
   filter: brightness(80%);
 }
 
@@ -618,6 +662,12 @@ a {
 }
 #contact .content #contactform label {
   margin: 10px 0 5px;
+}
+#contact .content #contactform textarea {
+  border-bottom-right-radius: 0;
+}
+#contact .content #contactform textarea::-webkit-resizer {
+  background-image: url(../images/arrow-45.svg);
 }
 #contact figure {
   position: absolute;
