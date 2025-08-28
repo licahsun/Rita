@@ -106,52 +106,116 @@
     @extend %flex-between;
     padding: $space-xs $space-xl;
 
-    ul {
-        @extend %flex-end;
-    }
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
 
-    .menu {
-        padding: $space-x-xs;
-        border-radius: $radius-ex;
-        @include glassmorphism;
+        //漢堡按鈕
+        .hamburger {
+            background-color: transparent;
+            border: none;
+            margin-bottom: $space-xs;
 
-        a {
-            font-family: $family-en;
-            font-weight: $f-w-b;
-            margin: $space-xs;
-            @include border-b ($width: 2px, $color: transparent);
+            .bar {
+                display: block;
+                width: 24px;
+                height: 3px;
+                background-color: $Charcoal;
+                margin: $space-xxs auto;
+            }
 
-            &:hover {
-                color: $Black;
-                @include border-b ($width: 2px, $color: $Black);
+            &.is-active {
+                .bar {
+                    &:nth-child(1) {
+                        transform: rotate(45deg) translate(5px, 6px);
+                    }
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    &:nth-child(3) {
+                        transform: rotate(-45deg) translate(5px, -6px);
+                    }
+                }
             }
         }
-    }
 
-    .more {
-        width: 100px;
-        // height: 50px; //行高設定跟高度一樣，文字即可垂直置中
-        line-height: 50px; //單行文字垂直置中，可直接設定行高取代高度
-        text-align: center;
-        background-color: $lesser-4;
-        margin-top: $space-lg;
-        color: $Light;
-        border-radius: $radius-ex;
-    }
-}
+        .navigation {
+            @media($mediaLg) {
+                @include glassmorphism;
+                border-radius: $radius-md;
+                display: none; //一開始先隱藏
+                @include amt($name: hide);
+                flex-direction: column;
+                padding: $space-xs;
 
-// 主要內容區
-#index {
-    section {
-        @extend %flex-center;
-        flex-direction: column;
-        height: 100vh;
-
-        @media ($mediaMd) {
-            &#video {
-                height: auto;
-                padding-bottom: $space-ex;
+                &.show {
+                    display: flex; //點擊後顯示
+                    @include amt($name:show);
+                }
             }
+
+            ul {
+                @extend %flex-end;
+            }
+
+            .menu {
+                padding: $space-x-xs;
+                border-radius: $radius-ex;
+
+                @media($mediaXl) {
+                    @include glassmorphism;
+                }
+
+
+                @media ($mediaLg) {
+
+                    flex-direction: column;
+                    order: -1;
+                }
+
+                a {
+                    font-family: $family-en;
+                    font-weight: $f-w-b;
+                    margin: $space-xs;
+                    @include border-b ($width: 2px, $color: transparent);
+
+                    &:hover {
+                        color: $Black;
+                        @include border-b ($width: 2px, $color: $Black);
+                    }
+                }
+            }
+
+            .more {
+                width: 100px;
+                // height: 50px; //行高設定跟高度一樣，文字即可垂直置中
+                line-height: 50px; //單行文字垂直置中，可直接設定行高取代高度
+                text-align: center;
+                background-color: $lesser-4;
+                margin-top: $space-lg;
+                color: $Light;
+                border-radius: $radius-ex;
+            }
+        }
+
+        // 主要內容區
+        #index {
+            section {
+                @extend %flex-center;
+                flex-direction: column;
+                height: 100vh;
+
+                @media ($mediaMd) {
+                    &#video {
+                        height: auto;
+                        padding-bottom: $space-ex;
+                    }
+                }
+            }
+
         }
     }
 }
@@ -345,7 +409,7 @@
         @extend %flex-center;
         flex-direction: column;
 
-        @media ($mediaMd){
+        @media ($mediaMd) {
             width: 90%;
         }
 
@@ -651,7 +715,8 @@ footer {
             margin-top: $space-xl;
         }
     }
-    #gotop{
+
+    #gotop {
         display: none;
         width: 50px;
         height: 50px;
@@ -666,10 +731,10 @@ footer {
         //button預設有padding與border
         border: none;
 
-        &:hover{
+        &:hover {
             background-color: $lesser-1;
         }
-        
+
 
     }
 }

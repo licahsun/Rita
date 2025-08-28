@@ -171,7 +171,7 @@ a {
   }
 }
 /* keyframes end*/
-#index section, #video div, #about div, #contact, #contact .content #contactform .btn-animat {
+#topbar .navbar #index section, #video div, #about div, #index section, #contact, #contact .content #contactform .btn-animat {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,7 +182,7 @@ a {
   justify-content: space-between;
 }
 
-#topbar ul {
+#topbar .navbar .navigation ul {
   display: flex;
   justify-content: flex-end;
 }
@@ -347,27 +347,82 @@ a {
   z-index: 99999;
   padding: 10px 30px;
 }
-#topbar .menu {
+#topbar .navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#topbar .navbar .hamburger {
+  background-color: transparent;
+  border: none;
+  margin-bottom: 10px;
+}
+#topbar .navbar .hamburger .bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #393a3a;
+  margin: 5px auto;
+}
+#topbar .navbar .hamburger.is-active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+#topbar .navbar .hamburger.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+#topbar .navbar .hamburger.is-active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+@media (max-width:970px) {
+  #topbar .navbar .navigation {
+    /* 玻璃擬態*/
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));
+    border: solid 2px rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), inset -1px -1px 1px rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    display: none;
+    animation: hide 0.75s both;
+    flex-direction: column;
+    padding: 10px;
+  }
+  #topbar .navbar .navigation.show {
+    display: flex;
+    animation: show 0.75s both;
+  }
+}
+#topbar .navbar .navigation .menu {
   padding: 0 10px;
   border-radius: 99px;
-  /* 玻璃擬態*/
-  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));
-  border: solid 2px rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), inset -1px -1px 1px rgba(255, 255, 255, 0.4);
 }
-#topbar .menu a {
+@media (min-width:971px) {
+  #topbar .navbar .navigation .menu {
+    /* 玻璃擬態*/
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));
+    border: solid 2px rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), inset -1px -1px 1px rgba(255, 255, 255, 0.4);
+  }
+}
+@media (max-width:970px) {
+  #topbar .navbar .navigation .menu {
+    flex-direction: column;
+    order: -1;
+  }
+}
+#topbar .navbar .navigation .menu a {
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
   margin: 10px;
   border-bottom: solid 2px transparent;
 }
-#topbar .menu a:hover {
+#topbar .navbar .navigation .menu a:hover {
   color: #0a0a0a;
   border-bottom: solid 2px #0a0a0a;
 }
-#topbar .more {
+#topbar .navbar .navigation .more {
   width: 100px;
   line-height: 50px;
   text-align: center;
@@ -376,13 +431,12 @@ a {
   color: #f2f7fa;
   border-radius: 99px;
 }
-
-#index section {
+#topbar .navbar #index section {
   flex-direction: column;
   height: 100vh;
 }
 @media (max-width:820px) {
-  #index section#video {
+  #topbar .navbar #index section#video {
     height: auto;
     padding-bottom: 100px;
   }
