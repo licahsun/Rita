@@ -116,6 +116,9 @@
             background-color: transparent;
             border: none;
             margin-bottom: $space-xs;
+            @media ($mediaXl){
+                display: none;
+            }
 
             .bar {
                 display: block;
